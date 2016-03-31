@@ -11,6 +11,11 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom Stylesheet, including Chinese font -->
 	<link href="css/imageSlide.css" rel="stylesheet">
+	
+	<script src="js/echarts.min.js"></script>
+    <script src="js/d3.min.js" charset="utf-8"></script> 
+    <script src="js/d3.geo.projection.min.js" charset="utf-8"></script>
+    <script src="js/topojson.min.js" charset="utf-8"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,8 +32,12 @@
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
 		<li data-target="#myCarousel" data-slide-to="3"></li>
+		<li data-target="#myCarousel" data-slide-to="4"></li>
+		<li data-target="#myCarousel" data-slide-to="5"></li>
+		<li data-target="#myCarousel" data-slide-to="6"></li>
       </ol>
       <div class="carousel-inner" role="listbox">
+      
         <div class="item active">
           <img class="first-slide" src="img/headImage.jpg" alt="First slide">
           <div class="container">
@@ -37,23 +46,581 @@
             </div>
           </div>
         </div>
+        
         <div class="item">
-          <img class="second-slide" src="img/headImage.jpg" alt="Second slide">
+<!--          <img class="second-slide" src="img/headImage.jpg" alt="Second slide">-->
+          <div id="second-slide" style="display:block; padding: 30px ;margin: 0px auto; width: 800px; height:400px;"></div>
+          <script>
+            var firstChart = echarts.init(document.getElementById('second-slide')) ;
+            var option= {
+               title: {
+                   text: "新闻数据综合比较",
+                   subtext: ""
+               },
+               tooltip: {
+                   trigger: "axis"
+               },
+               legend: {
+                   data: ["泰国星暹日报", "泰国世界日报"]
+               },
+               toolbox: {
+                   show: true,
+                   feature: {
+                       mark: {
+                           show: true
+                       },
+                       dataView: {
+                           show: true,
+                           readOnly: true
+                       },
+                       magicType: {
+                           show: false,
+                           type: ["line", "bar"]
+                       },
+                       restore: {
+                           show: true
+                       },
+                       saveAsImage: {
+                           show: true
+                       }
+                   }
+               },
+               calculable: true,
+               xAxis: [
+                   {
+                       type: "value",
+                       boundaryGap: [0, 0.01]
+                   }
+               ],
+               yAxis: [
+                   {
+                       type: "category",
+                       data: ["半年来新闻总数", "相关中国报道总数", "相关中国报道负面新闻数", "半年来泰国负面新闻数"]
+                   }
+               ],
+               series: [
+                   {
+                       name: "泰国星暹日报",
+                       type: "bar",
+                       data: [697, 151, 52, 72]
+                   },
+                   {
+                       name: "泰国世界日报",
+                       type: "bar",
+                       data: [567, 119, 71, 113]
+                   }
+               ],
+               grid: {
+                   x: "26%",
+                   width: "69%"
+               }
+            };
+            firstChart.setOption(option) ;
+          </script>
+          
+          
           <div class="container">
             <div class="carousel-caption">
               
             </div>
           </div>
         </div>
+        
         <div class="item">
-          <img class="third-slide" src="img/headImage.jpg" alt="Third slide">
+<!--          <img class="third-slide" src="img/headImage.jpg" alt="Third slide">-->
+          <div id="third-slide" style="display:block; padding: 30px ;margin: 0px auto; width: 800px; height:400px;"></div>
+          <script>
+            var secondChart = echarts.init(document.getElementById('third-slide')) ;
+            var option= {
+   title: {
+       text: "泰国星暹日报报道类别比例",
+       x: "center"
+   },
+   tooltip: {
+       trigger: "item",
+       formatter: "{a} <br/>{b} : {c} ({d}%)"
+   },
+   legend: {
+       orient: "vertical",
+       x: "left",
+       data: ["政治", "经济", "社会", "文化", "军事"]
+   },
+   toolbox: {
+       show: true,
+       feature: {
+           mark: {
+               show: true
+           },
+           dataView: {
+               show: true,
+               readOnly: true
+           },
+           restore: {
+               show: true
+           },
+           saveAsImage: {
+               show: true
+           }
+       }
+   },
+   calculable: true,
+   series: [
+       {
+           name: "泰国星暹日报",
+           type: "pie",
+           radius: "55%",
+           center: ["50%", "60%"],
+           itemStyle: {
+               normal: {
+                   label: {
+                       show: true,
+                       formatter: "{b}: {c} ({d}%)"
+                   }
+               }
+           },
+           data: [
+               {
+                   value: 12,
+                   name: "政治"
+               },
+               {
+                   value: 25,
+                   name: "经济"
+               },
+               {
+                   value: 75,
+                   name: "社会"
+               },
+               {
+                   value: 36,
+                   name: "文化"
+               },
+               {
+                   value: 1,
+                   name: "军事"
+               }
+           ]
+       }
+   ]
+};
+            secondChart.setOption(option) ;
+          </script>
+          
+          
           <div class="container">
             <div class="carousel-caption">
               
             </div>
           </div>
         </div>
+      
+      
+      <div class="item">
+<!--          <img class="third-slide" src="img/headImage.jpg" alt="Third slide">-->
+          <div id="forth-slide" style="display:block; padding: 30px ;margin: 0px auto; width: 800px; height:400px;"></div>
+          <script>
+            var thirdChart = echarts.init(document.getElementById('forth-slide')) ;
+            var option= {
+   title: {
+       text: "泰国世界日报报道类别比例",
+       x: "center"
+   },
+   tooltip: {
+       trigger: "item",
+       formatter: "{a} <br/>{b} : {c} ({d}%)"
+   },
+   legend: {
+       orient: "vertical",
+       x: "left",
+       data: ["政治", "经济", "社会", "文化", "军事"]
+   },
+   toolbox: {
+       show: true,
+       feature: {
+           mark: {
+               show: true
+           },
+           dataView: {
+               show: true,
+               readOnly: true
+           },
+           restore: {
+               show: true
+           },
+           saveAsImage: {
+               show: true
+           }
+       }
+   },
+   calculable: true,
+   series: [
+       {
+           name: "泰国世界日报",
+           type: "pie",
+           radius: "55%",
+           center: ["50%", "60%"],
+           itemStyle: {
+               normal: {
+                   label: {
+                       show: true,
+                       formatter: "{b}: {c} ({d}%)"
+                   }
+               }
+           },
+           data: [
+               {
+                   value: 3,
+                   name: "政治"
+               },
+               {
+                   value: 11,
+                   name: "经济"
+               },
+               {
+                   value: 89,
+                   name: "社会"
+               },
+               {
+                   value: 15,
+                   name: "文化"
+               },
+               {
+                   value: 1,
+                   name: "军事"
+               }
+           ]
+       }
+   ]
+};
+            thirdChart.setOption(option) ;
+          </script>
+          
+          
+          <div class="container">
+            <div class="carousel-caption">
+              
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        <div class="item">
+<!--          <img class="third-slide" src="img/headImage.jpg" alt="Third slide">-->
+          <div id="fifth-slide" style="display:block; padding: 30px ;margin: 0px auto; width: 800px; height:400px;"></div>
+          <script>
+            var forthChart = echarts.init(document.getElementById('fifth-slide')) ;
+            var option= {
+               tooltip: {
+                   trigger: "axis"
+               },
+               legend: {
+                   orient: "horizontal",
+                   x: "right",
+                   y: "bottom",
+                   data: ["泰国星暹日报", "泰国世界日报"]
+               },
+               toolbox: {
+                   show: true,
+                   feature: {
+                       mark: {
+                           show: true
+                       },
+                       dataView: {
+                           show: true,
+                           readOnly: false
+                       },
+                       restore: {
+                           show: true
+                       },
+                       saveAsImage: {
+                           show: true
+                       }
+                   }
+               },
+               polar: [
+                   {
+                       indicator: [
+                           {
+                               text: "政治",
+                               min: 0,
+                               max: 0.75
+                           },
+                           {
+                               text: "经济",
+                               min: 0,
+                               max: 0.75
+                           },
+                           {
+                               text: "社会",
+                               min: 0,
+                               max: 0.75
+                           },
+                           {
+                               text: "文化",
+                               min: 0,
+                               max: 0.75
+                           },
+                           {
+                               text: "军事",
+                               min: 0,
+                               max: 0.75
+                           }
+                       ],
+                       type: "polygon"
+                   }
+               ],
+               calculable: true,
+               series: [
+                   {
+                       name: "",
+                       type: "radar",
+                       data: [
+                           {
+                               value: [0.079, 0.166, 0.4967, 0.2384, 0.0084],
+                               name: "泰国星暹日报"
+                           }
+                       ]
+                   },
+                   {
+                       name: "",
+                       type: "radar",
+                       data: [
+                           {
+                               value: [0.0252, 0.092, 0.7479, 0.126, 0.0084],
+                               name: "泰国世界日报"
+                           }
+                       ]
+                   }
+               ]
+            };
+            forthChart.setOption(option) ;
+          </script>
+          
+          
+          <div class="container">
+            <div class="carousel-caption">
+              
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="item">
+<!--          <img class="third-slide" src="img/headImage.jpg" alt="Third slide">-->
+          <div id="sixth-slide" style="display:block; padding: 30px ;margin: 0px auto; width: 900px; height:450px;"></div>
+          <script>
+            var width = 900,
+	    height = 450;
+	    
+	    
+	    //albers is not working
+	    var projection = d3.geo.mercator()
+	        .center([107, 31])
+            .scale(400)
+            .translate([width/2, height/2]);
+	           
+	    var path = d3.geo.path()
+	        .projection(projection) 
+	        .pointRadius(2);
+	        
+   	        
+
+        // draw svg
+        var svg = d3.select("#sixth-slide").append("svg")
+	        .attr("width", width)
+	        .attr("height", height);
+
+        var linkMap = {} ;
+        var relatedPlaces = [] ;
+
+        d3.json("json/thailand_china_prep_map_with_places.json", function(error, mapdata) {
+          
+            if (error) return console.error(error) ;
+            svg.selectAll(".subunit")
+                .data(topojson.feature(mapdata, mapdata.objects.china_thailand_subunits).features)
+                .enter().append("path")
+                .attr("class", function(d) { console.log(d.id) ; return "subunit " + d.id ;})
+                .attr("d", path) 
+                ;
+            
+            //draw place dot
+            svg.append("path")
+                .datum(topojson.feature(mapdata,mapdata.objects.cn_places))
+                .attr("d",path)
+                .attr("class","place") ;
+            svg.append("path")
+                .datum(topojson.feature(mapdata,mapdata.objects.th_places))
+                .attr("d",path)
+                .attr("class","place") ;
+            svg.append("path")
+                .datum(topojson.feature(mapdata,mapdata.objects.tw_places))
+                .attr("d",path)
+                .attr("class","place") ;
+            svg.append("path")
+                .datum(topojson.feature(mapdata,mapdata.objects.hk_places))
+                .attr("d",path)
+                .attr("class","place") ;
+                  
+            
+            var placeMarks = d3.merge([topojson.feature(mapdata,mapdata.objects.cn_places).features ,  topojson.feature(mapdata,mapdata.objects.tw_places).features , topojson.feature(mapdata,mapdata.objects.th_places).features]) ;
+            
+       
+      
+      
+            //store place coordinates in linkMap
+            
+            var placeNames = [] ;
+            for (i in placeMarks) {
+                linkMap[placeMarks[i].properties.name] = placeMarks[i].geometry.coordinates ;
+                placeNames.push(placeMarks[i].properties.name) ;
+            }
+
+            
+            
+            //load all linked places in the csv file
+            d3.csv("json/all_linked_places.csv")
+                .row(function (d) {
+                    //console.log(d) ;
+                    if (d.d1 != "" && d.d2 != "") {
+                        //fly d1 d2
+                        //check if 
+                        var linkedList = [] ;
+                        linkedList.push(d.d1) ;
+                        linkedList.push(d.d2) ;
+                        if (d.d3 != "")
+                            linkedList.push(d.d3) ;
+                        if (d.d4 != "")
+                            linkedList.push(d.d4) ;
+                        if (d.d5 != "")
+                            linkedList.push(d.d5) ;
+                            
+                        //console.log(linkedList) ;
+                        var prepLinkedList = [] ;
+                        
+                        
+                        for (i in placeNames) {
+                            for (j in linkedList){
+                                //check if place name in map data, if so, fly the map data name instead of prepared csv data
+                                
+                                //console.log(linkedList[j]) ;
+                                if (placeNames[i].toLowerCase() == linkedList[j].toLowerCase() && prepLinkedList.indexOf(placeNames[i]) == -1)
+                                {
+                                    prepLinkedList.push(placeNames[i]) ;
+                                }
+                            }
+                        }
+                        //console.log(prepLinkedList) ;
+                        //draw the final prepared linke path
+                        if (prepLinkedList.length > 1) {
+                            for (var ii = 0 ; ii < prepLinkedList.length - 1 ; ++ii)
+                                for (var jj = 1 ; jj < prepLinkedList.length ; ++jj)
+                                    if (ii != jj)
+                                    {
+                                        fly(prepLinkedList[ii],prepLinkedList[jj]) ;
+                                    }
+                        }
+                        
+                        
+                        //put prepLinkedList in the collection
+                       
+                        for (i in prepLinkedList){
+                            if (relatedPlaces.indexOf(prepLinkedList[i]) == -1){
+                                relatedPlaces.push(prepLinkedList[i]) ;
+                            }
+                        }
+                        
+                        svg.selectAll("circle")
+                            .data(relatedPlaces).enter()
+                            .append("circle")
+                            .attr("cx", function (d){
+                                //console.log(linkMap[d][0]) ;
+                                return projection(linkMap[d])[0] ;
+                            })
+                            .attr("cy", function (d){
+                                return projection(linkMap[d])[1] ;
+                            }) 
+                            .attr("r", "10px")
+                            .attr("class","linked_places") 
+                            
+                        svg.selectAll(".scaled_labels")
+                            .data(relatedPlaces).enter()
+                            .append("text")
+                            
+                            .attr("transform", function(d) { return "translate(" + projection(linkMap[d]) + ")"; })
+                            
+                          .attr("x", function(d) { return projection(linkMap[d])[0] > -1 ? 6 : -6; })
+                          .attr("dy", ".35em")
+                          .attr("dx", ".35em")
+                          .style("text-anchor", function(d) { return projection(linkMap[d])[0] > -1 ? "start" : "end"; })
+      
+                            .attr("class", "scaled_labels")
+                            .text(function(d) {return d;})
+                            ;
+                    }
+                           
+                    
+                })
+                .get(function (error, rows) { 
+                //console.log(error); 
+                })
+                ;
+                
+         
+        
+        
+            
+      
+      function fly(origin, destination) {
+                var route = svg.append("path")
+                   .datum({type: "LineString", coordinates: [linkMap[origin], linkMap[destination]]})
+                   .attr("class", "route")
+                   .attr("d", path);
+    
+              }
+              
+     
+              
+        }) ;
+        
+        
+        
+          
+              
+     
+        
+          </script>
+          
+          
+          <div class="container">
+            <div class="carousel-caption">
+              
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+        
       </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
@@ -68,5 +635,6 @@
     <script src="js/jquery-1.12.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    
   </body>
 </html>
