@@ -4,10 +4,66 @@ html, body {
     height:100%;
 }
 body {
-    font-family: sans-serif ;
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
 }
 
+.newspaper-image {
+    position: absolute;
+    width: 100% ;
+    display:block;
+    margin: 50px ;/*357 565*/
+    
+    
+}
+.newspaper-image img{
+    display:inline-block ;
+    width:200px  ;
+}
 
+.preface {
+    background-color: rgba(0,0,0,0.5);
+    color: rgb(255,255,255) ;
+    margin: auto 50px ;
+    padding: 30px ;
+    border-radius: 20px ;
+    font-size: 1em ;
+    text-align: justify ;
+    text-indent: 2em ;
+    margin-top: 10%;
+}
+
+.conclusion {
+    background-color: rgba(0,0,0,0.5);
+    color: rgb(255,255,255) ;
+    margin-top: 15% ;
+    margin-left:auto ;
+    margin-right:auto ;
+    padding: 30px ;
+    border-radius: 20px ;
+    font-size: 1em ;
+    text-align: justify ;
+    text-indent: 2em ;
+    width: 75% ;
+}
+.namelist {
+    background-color: rgba(0,0,0,0.5);
+    color: rgb(255,255,255) ;
+    margin: auto auto ;
+    padding: 30px ;
+    border-radius: 20px ;
+    font-size: 1em ;
+    text-align: left ;
+    width: 75% ;
+}
+.contact {
+    color: rgb(255,255,255) ;
+    font-size: 0.5em ;
+    position: absolute;
+    bottom: 0 ;
+    left: 50% ;
+    margin-left: -140px;
+    
+}
 
 /* Carousel base class */
 .carousel {
