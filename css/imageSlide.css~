@@ -30,16 +30,22 @@ body {
 .carousel .item {
   height: 100%;
   background-color: #777;
+  
 }
 
 .graphs {
   position: absolute ;
   display:block; 
-  padding: 30px ;
+  padding: 30px 100px ;
   margin: 0px auto; 
   object-fit: cover ;
   width: 100vw; 
   height: 100vh;
+}
+
+.bubble-svg {
+  display:block; 
+  margin: auto; 
 }
 
 .carousel-inner > .item > img {
@@ -49,7 +55,20 @@ body {
   height: 100%;
 }
 
-
+.carousel-control {
+  top:50%;
+  width:50px;
+  height:100%;
+  background:none;
+}
+.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right  {
+  position:static;
+  display:block;
+  width:auto;
+}
+.carousel-control .glyphicon-chevron-left:before {
+  margin-left:0;
+}
 
 
 
@@ -97,7 +116,7 @@ circle {
 .scaled_labels {
     fill: #EEEEEE ;
     opacity: 1.0 ;
-    font-size: 1em ;
+    font-size: 0.75em ;
 }
 
 .route {
