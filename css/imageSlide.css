@@ -11,13 +11,14 @@ body {
     position: absolute;
     width: 100% ;
     display:block;
-    margin: 50px ;/*357 565*/
+    margin: 0 ;/*357 565*/
+    margin-top: 50px ;
     
     
 }
 .newspaper-image img{
     display:inline-block ;
-    width:200px  ;
+    width:27%  ;
 }
 
 .preface {
