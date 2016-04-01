@@ -12,6 +12,11 @@
 	<!-- Custom Stylesheet, including Chinese font -->
 	<link href="css/imageSlide.css" rel="stylesheet">
 	
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	
 	<script src="js/echarts.min.js"></script>
     <script src="js/d3.min.js" charset="utf-8"></script> 
     <script src="js/d3.geo.projection.min.js" charset="utf-8"></script>
@@ -48,8 +53,7 @@
         </div>
         
         <div class="item">
-<!--          <img class="second-slide" src="img/headImage.jpg" alt="Second slide">-->
-          <div id="second-slide" style="display:block; padding: 30px ;margin: 0px auto; width: 800px; height:400px;"></div>
+          <div id="second-slide" class="graphs" ></div>
           <script>
             var firstChart = echarts.init(document.getElementById('second-slide')) ;
             var option= {
@@ -128,7 +132,7 @@
         
         <div class="item">
 <!--          <img class="third-slide" src="img/headImage.jpg" alt="Third slide">-->
-          <div id="third-slide" style="display:block; padding: 30px ;margin: 0px auto; width: 800px; height:400px;"></div>
+          <div id="third-slide" class="graphs"></div>
           <script>
             var secondChart = echarts.init(document.getElementById('third-slide')) ;
             var option= {
@@ -217,7 +221,7 @@
       
       <div class="item">
 <!--          <img class="third-slide" src="img/headImage.jpg" alt="Third slide">-->
-          <div id="forth-slide" style="display:block; padding: 30px ;margin: 0px auto; width: 800px; height:400px;"></div>
+          <div id="forth-slide" class="graphs"></div>
           <script>
             var thirdChart = echarts.init(document.getElementById('forth-slide')) ;
             var option= {
@@ -307,7 +311,7 @@
         
         <div class="item">
 <!--          <img class="third-slide" src="img/headImage.jpg" alt="Third slide">-->
-          <div id="fifth-slide" style="display:block; padding: 30px ;margin: 0px auto; width: 800px; height:400px;"></div>
+          <div id="fifth-slide" class="graphs"></div>
           <script>
             var forthChart = echarts.init(document.getElementById('fifth-slide')) ;
             var option= {
@@ -407,12 +411,16 @@
         
         
         <div class="item">
-<!--          <img class="third-slide" src="img/headImage.jpg" alt="Third slide">-->
-          <div id="sixth-slide" style="display:block; padding: 30px ;margin: 0px auto; width: 900px; height:450px;"></div>
+          <div id="sixth-slide" class="graphs"></div>
           <script>
-            var width = 900,
-	    height = 450;
+          
+          
+           //var width = document.getElementById("sixth-slide").clientWidth,
+	    //height = document.getElementById("sixth-slide").clientHeight;
+	    var width = $(".graphs").width() ;
+	    var height = $(".graphs").height() ;
 	    
+	    //console.log(width + " " + height) ;
 	    
 	    //albers is not working
 	    var projection = d3.geo.mercator()
@@ -440,7 +448,9 @@
             svg.selectAll(".subunit")
                 .data(topojson.feature(mapdata, mapdata.objects.china_thailand_subunits).features)
                 .enter().append("path")
-                .attr("class", function(d) { console.log(d.id) ; return "subunit " + d.id ;})
+                .attr("class", function(d) { 
+                    //console.log(d.id) ; 
+                    return "subunit " + d.id ;})
                 .attr("d", path) 
                 ;
             
@@ -584,9 +594,7 @@
         }) ;
         
         
-        
-          
-              
+
      
         
           </script>
@@ -607,17 +615,7 @@
       </div>
       
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       
       
       
@@ -631,10 +629,7 @@
       </a>
     </div><!-- /.carousel -->
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-1.12.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+
     
   </body>
 </html>
