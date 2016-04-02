@@ -33,6 +33,37 @@ body {
     margin-top: 10%;
 }
 
+.sixfive-slide {
+    
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+    width:  60% ;
+    height: 80% ;
+    background: url("../img/Cloud_xingxieribao_0402_v2.png") center center no-repeat ;
+    background-size: contain ;
+}
+.sixsix-slide {
+    
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+
+    margin: auto ;
+    width:  60% ;
+    height: 80% ;
+    background: url("../img/Cloud_shijieribao_0402.png") center center no-repeat ;
+    background-size: contain ;
+}
+
+
 .conclusion {
     background-color: rgba(0,0,0,0.5);
     color: rgb(255,255,255) ;
@@ -111,6 +142,7 @@ body {
   width: 100% ;
   height: 100%;
 }
+
 
 .carousel-control {
   width:50px;

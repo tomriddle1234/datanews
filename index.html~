@@ -42,6 +42,8 @@
 		<li data-target="#myCarousel" data-slide-to="6"></li>
 		<li data-target="#myCarousel" data-slide-to="7"></li>
 		<li data-target="#myCarousel" data-slide-to="8"></li>
+		<li data-target="#myCarousel" data-slide-to="9"></li>
+		<li data-target="#myCarousel" data-slide-to="10"></li>
       </ol>
       <div class="carousel-inner" role="listbox">
       
@@ -454,11 +456,35 @@
         </div>
         
         <div class="item">
+         <div class="sixfive-slide">
+         
+            </div>
+          <div class="container">
+            <div class="carousel-caption">
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="item">
+          <div class="sixsix-slide">
+         
+          </div>
+          <div class="container">
+            <div class="carousel-caption">
+              
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        <div class="item">
           <div id="eighth-slide" class="graphs">
           
           <p class="conclusion">东盟十国是华人多、经济合作多、文化共通性强的国际相邻区域，当地华人正是东盟国家认同“一带一路”的中介和突破口，作为海外华人社会的“三宝”之一的华文媒体成为东盟国家民众认识中国形象的重要平台和一支不可忽视的传媒力量。随着新媒体日益成为舆论主场的今天，华文媒体的微信公众号上有关中国的报道将逐渐影响中国形象在国际上被认可的程度。</p>
-          <p class="namelist">【第二届数据新闻大赛 参赛作品】<br \>【选题——新丝绸之路经济带上的对外文化传播与国家形象】<br \>【团队成员：罗奕、郭健鸣、梁煖、陈佳】<br \> <br\>    “据”说东盟华文纸媒微信公众号镜像下的中国形象 <br \>      ——以泰国《星暹日报》和《世界日报》为例</p>
-          <p class="contact">2016&copy;， Designer: Jianming Guo @<a href="vfxware.com">vfxware.com</a> Build with Bootstrap, Echarts, D3.js</p>
+          <p class="namelist">【第二届数据新闻大赛 参赛作品】<br \>【选题——新丝绸之路经济带上的对外文化传播与国家形象】<br \>【团队成员：罗奕、郭健鸣、梁煖、陈佳】</p>
+          <p class="contact">2016&copy;， Jianming Guo @<a href="vfxware.com">vfxware.com</a> Powered by Bootstrap, Echarts, D3.js, Tagxedo</p>
             </div>
           <div class="container">
             <div class="carousel-caption">
