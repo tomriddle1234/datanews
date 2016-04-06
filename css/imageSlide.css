@@ -128,7 +128,7 @@ body {
   margin: 0px auto; 
   object-fit: cover ;
   width: 100vw; 
-  height: 100vh;
+  height: 80vh;
 }
 
 .bubble-svg {
@@ -148,6 +148,11 @@ body {
   width:50px;
 }
 
+.carousel-caption > p {
+    text-align: justify ;
+    text-indent: 2em ;
+    
+}
 
 
 /* --- For images --- */

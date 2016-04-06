@@ -60,7 +60,7 @@ body {
     width:  60% ;
     height: 80% ;
     background: url("../img/Cloud_shijieribao_0402.png") center center no-repeat ;
-    background-size: cover ;
+    background-size: contain ;
 }
 
 
@@ -148,6 +148,11 @@ body {
   width:50px;
 }
 
+.carousel-caption > p {
+    text-align: justify ;
+    text-indent: 2em ;
+    
+}
 
 
 /* --- For images --- */
