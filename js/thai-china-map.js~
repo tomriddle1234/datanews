@@ -17,9 +17,23 @@
         var svg = d3.select("#seventh-slide").append("svg")
 	        .attr("width", width)
 	        .attr("height", height);
+	        
+	        
+	    var tooltip_map = d3.select("#seventh-slide")
+            .append("div")
+            .style("position", "absolute")
+            .style("z-index", "10")
+            .style("visibility", "hidden")
+            .style("color", "white")
+            .style("padding", "8px")
+            .style("background-color", "rgba(0, 0, 0, 0.75)")
+            .style("border-radius", "6px")
+            .style("font", "12px sans-serif")
+            .text("tooltip");
 
         var linkMap = {} ;
         var relatedPlaces = [] ;
+        var linkTitles = {} ;
 
         d3.json("../json/thailand_china_prep_map_with_places.json", function(error, mapdata) {
           
@@ -78,12 +92,19 @@
                         linkedList.push(d.d1) ;
                         linkedList.push(d.d2) ;
                         if (d.d3 != "")
+                        {
                             linkedList.push(d.d3) ;
-                        if (d.d4 != "")
-                            linkedList.push(d.d4) ;
-                        if (d.d5 != "")
-                            linkedList.push(d.d5) ;
+                        }
                             
+                        if (d.d4 != "")
+                        {
+                            linkedList.push(d.d4) ;
+                        }
+                        if (d.d5 != "")
+                        {
+                            linkedList.push(d.d5) ;
+                        }   
+                        
                         //console.log(linkedList) ;
                         var prepLinkedList = [] ;
                         
@@ -96,6 +117,12 @@
                                 if (placeNames[i].toLowerCase() == linkedList[j].toLowerCase() && prepLinkedList.indexOf(placeNames[i]) == -1)
                                 {
                                     prepLinkedList.push(placeNames[i]) ;
+                                    
+                                    //title array for tooltip
+                                    if (linkTitles[placeNames[i]] === undefined)
+                                        linkTitles[placeNames[i]] = [] ;
+                                    if ( linkTitles[placeNames[i]].indexOf(d.title) == -1 )
+                                        linkTitles[placeNames[i]].push(d.title) ;
                                 }
                             }
                         }
@@ -131,6 +158,22 @@
                             }) 
                             .attr("r", "10px")
                             .attr("class","linked_places") 
+                            .on("mouseover", function(d) {
+                             
+                             var titleTextCompose = "";
+                             //compose a list of titles
+                             for (titext in linkTitles[d]) {
+                                titleTextCompose = titleTextCompose + linkTitles[d][titext] +"<br \\>"  ;
+                             }
+                             
+                             tooltip_map.html(titleTextCompose);
+                             tooltip_map.style("visibility", "visible");
+                              })
+                            .on("mousemove", function() {
+                              return tooltip_map.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
+                             })
+                            .on("mouseout", function(){return tooltip_map.style("visibility", "hidden");});
+                            ;
                             
                         svg.selectAll(".scaled_labels")
                             .data(relatedPlaces).enter()
