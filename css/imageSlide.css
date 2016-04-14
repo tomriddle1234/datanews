@@ -27,7 +27,7 @@ body {
     margin: auto 50px ;
     padding: 30px ;
     border-radius: 20px ;
-    font-size: 1em ;
+    font-size: 1.4em ;
     text-align: justify ;
     text-indent: 2em ;
     margin-top: 10%;
@@ -42,6 +42,7 @@ body {
     right: 0;
 
     margin: auto;
+    margin-bottom: 13% ;
     width:  60% ;
     height: 80% ;
     background: url("../img/Cloud_xingxieribao_0402_v2.png") center center no-repeat ;
@@ -57,8 +58,10 @@ body {
 
 
     margin: auto ;
+    margin-bottom: 13% ;
     width:  60% ;
     height: 80% ;
+    
     background: url("../img/Cloud_shijieribao_0402.png") center center no-repeat ;
     background-size: contain ;
 }
@@ -72,7 +75,7 @@ body {
     margin-right:auto ;
     padding: 30px ;
     border-radius: 20px ;
-    font-size: 1em ;
+    font-size: 1.4em ;
     text-align: justify ;
     text-indent: 2em ;
     width: 75% ;
@@ -83,7 +86,7 @@ body {
     margin: auto auto ;
     padding: 30px ;
     border-radius: 20px ;
-    font-size: 1em ;
+    font-size: 1.4em ;
     text-align: left ;
     width: 75% ;
 }
@@ -149,9 +152,9 @@ body {
 }
 
 .carousel-caption > p {
+    font-size: 1.2em ;
     text-align: justify ;
     text-indent: 2em ;
-    
 }
 
 
